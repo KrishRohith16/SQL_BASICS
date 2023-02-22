@@ -131,6 +131,19 @@ DEFAULT
 -- _______________________________________________________________________________________________________________
 
 -- CASE STATEMENT
+SELECT A.SNO, A.EMP_ID, A.EMP_NAME, A.AGE, A.NATIONALITY, B.CITY_NAME, C.DEPT_NAME, CASE
+WHEN C.DEPT_NAME = 'WEB_DESIGNER' THEN 'WD'
+WHEN C.DEPT_NAME = 'FRONT-END_DEVELOPER' THEN 'FED'
+WHEN C.DEPT_NAME = 'BACK-END_DEVELOPER' THEN 'BED'
+WHEN C.DEPT_NAME = 'SQL_DEVELOPER' THEN 'DB/SQL'
+WHEN C.DEPT_NAME = 'DEVOPS_DEVELOPER' THEN 'DEVOPS'
+WHEN C.DEPT_NAME = 'FULL-STACK_DEVELOPER' THEN 'FSD'
+END AS EMP_DEPT
+FROM EMP_INFO A
+INNER JOIN CITY B ON A.EMP_CITY_ID = B.CITY_ID
+INNER JOIN DEPT C ON A.EMP_DEPT_ID = C.DEPT_ID 
+ORDER BY A.EMP_ID;
+
 -- _______________________________________________________________________________________________________________
 
 -- IMPORTANT SQL CLAUSE
